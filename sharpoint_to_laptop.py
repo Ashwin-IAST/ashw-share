@@ -1,13 +1,14 @@
+import sys
+import io
+
+# === Fix Unicode Output (must be done first before any Unicode print) ===
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+print("🔧 Setting up Unicode-compatible stdout...")
+
 import os
 import requests
 import msal
 from urllib.parse import quote
-import sys
-import io
-
-# === Fix Unicode Output ===
-print("🔧 Setting up Unicode-compatible stdout...")
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
 # === Get filename from CLI ===
 print("📥 Checking command line arguments...")
